@@ -61,10 +61,12 @@
                             <div class="input-group">
                                <span class="input-group-addon" style="max-width: 100%;"><i class="glyphicon glyphicon-list"></i></span>
                                <select class="selectpicker form-control" id="status" name="category_id">
-                                   @foreach($categories as $category)
+                                @if(isset($categories) && count($categories) >0)   
+                                @foreach($categories as $category)
                                     <option value="{{ $category->id }}" {{ (isset($data->category_id) && $data->category_id==$category->id) ? 'selected' : ''  }} >{{ $category->name }}</option>
                                     @endforeach                               
                                 </select>
+                                @endif
                             </div>
                          </div>
                       </div>

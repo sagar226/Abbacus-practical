@@ -77,6 +77,8 @@
                 </form>
              </td>
           </tr>
+          <a href="/categories" style="text-align:center;" class="btn btn-primary">Category</a>
+          <a href="/products" style="text-align:center;" class="btn btn-primary">products</a>
        </tbody>
     </table>
  </div> 
