@@ -18,3 +18,24 @@ Route::post('update-profile','AuthController@updateProfile');
 Route::get('/','AuthController@index');
 
 Route::get('profile/{id}','AuthController@profile');
+Route::get('getcategories','CategoryController@categories');
+Route::get('categories','CategoryController@index');
+Route::get('create-category','CategoryController@categoryForm');
+Route::post('submit-category','CategoryController@create');
+Route::get('category/{id}','CategoryController@getDetails');
+
+Route::post('update-category','CategoryController@update');
+Route::get('delete-category/{id}','CategoryController@delete');
+
+
+Route::get('products','ProductController@index');
+Route::get('getproducts','ProductController@products');
+Route::get('create-products','ProductController@productForm');
+
+Route::post('submit-product','ProductController@create');
+Route::get('product/{id}','ProductController@getDetails');
+
+Route::post('update-product','ProductController@update');
+Route::get('delete-product/{id}','ProductController@delete');
+
+
