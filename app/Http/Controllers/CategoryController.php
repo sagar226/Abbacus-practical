@@ -3,21 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use App\Core\Repositories\UserRepository;
-use App\User;
-use Exception;
-use Illuminate\Contracts\Session\Session;
+use App\DeliveryData;
+use App\Imports\DeliveryImport;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
-use Mockery\CountValidator\Exact;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CategoryController extends Controller
 {
     public function index()
     {
         return view('category');
+    }
+
+    public function uploader(Request $request){
+        
+        $unique=$this->downloadFile($request->file);
+        $path=config('filesystems.disks.local.url');
+        $url=$path.'/'.$unique;
+        
+        Excel::import(new DeliveryImport,$url);
+     
     }
     public function categories($item=4){
         $category=Category::paginate($item);

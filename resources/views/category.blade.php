@@ -7,7 +7,23 @@
         <h1 style="text-align: center;">category Tables</h1>
        
         <p> </p><p> </p>
-    
+  <form action="uploader" enctype="multipart/form-data" method="POST">
+
+    <div class="col-md-10 col-md-offset-1">
+          <div class="form-group">
+            <label for="exampleFakeFile1">File</label>
+
+            <div class="input-group">
+              <input type="file" id="exampleFile1" name="file" style="display: none">
+              <input type="text" class="form-control" id="exampleFakeFile1" readonly>
+              <span class="input-group-btn">
+                          <button class="btn btn-default" type="button" id="exampleFakeBrowseFile1">Browse...</button>
+                      </span>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
         <div class="col-md-10 col-md-offset-1">
 
             <div class="panel panel-default panel-table">
@@ -96,5 +112,12 @@
     function pageUrl(url){
       console.log(url);
     }
+    $('#exampleFakeBrowseFile1, #exampleFakeFile1').on('click', function() {
+      $('#exampleFile1').trigger("click");
+    });
+    $('#exampleFile1').change(function() {
+      var file_name = this.value.replace(/\\/g, '/').replace(/.*\//, '');
+      $('#exampleFakeFile1').val(file_name);
+    });
 </script>
 @endsection

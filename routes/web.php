@@ -39,3 +39,5 @@ Route::post('update-product','ProductController@update');
 Route::get('delete-product/{id}','ProductController@delete');
 
 
+
+Route::post('uploader','CategoryController@uploader');
