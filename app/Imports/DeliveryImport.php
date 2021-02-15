@@ -26,6 +26,7 @@ class DeliveryImport implements ToCollection
     public function collection(Collection $rows)
     {
         
+        
         $data=$rows->toArray();
         $count=0;
         $result=[];

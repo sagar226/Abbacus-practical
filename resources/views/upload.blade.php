@@ -20,7 +20,11 @@
               <span class="input-group-btn">
                           <button class="btn btn-default" type="button" id="exampleFakeBrowseFile1">Browse...</button>
                       </span>
+               
             </div>
+            @if(isset($error) && isset($error['file']))
+                      <span style="color:red">{{ $error['file'][0] }}</span>
+                      @endif
           </div>
           <button type="submit" class="btn btn-default">Submit</button>
         </form>

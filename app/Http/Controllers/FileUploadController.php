@@ -20,6 +20,15 @@ class FileUploadController extends Controller
 
     public function uploader(Request $request){
         
+
+
+        $validator = Validator::make($request->all(),[
+            'file' => 'required|mimes:csv'
+        ]);
+        
+        if($validator->fails())  return view('upload',['error'=>$validator->errors()->toArray()]);
+
+
         $unique=$this->downloadFile($request->file);
         $path=config('filesystems.disks.public.root');
         $pathT=config('filesystems.disks.public.url');
