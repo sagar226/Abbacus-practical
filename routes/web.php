@@ -13,31 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('registration','AuthController@userRegistration');
-Route::post('update-profile','AuthController@updateProfile');
-Route::get('/','AuthController@index');
+Route::get('/','DeliveryController@index');
+Route::get('upload','FileUploadController@index');
 
-Route::get('profile/{id}','AuthController@profile');
-Route::get('getcategories','CategoryController@categories');
-Route::get('categories','CategoryController@index');
-Route::get('create-category','CategoryController@categoryForm');
-Route::post('submit-category','CategoryController@create');
-Route::get('category/{id}','CategoryController@getDetails');
+Route::get('deliveries','DeliveryController@deliveries');
 
-Route::post('update-category','CategoryController@update');
-Route::get('delete-category/{id}','CategoryController@delete');
+Route::post('uploader','FileUploadController@uploader');
 
-
-Route::get('products','ProductController@index');
-Route::get('getproducts','ProductController@products');
-Route::get('create-products','ProductController@productForm');
-
-Route::post('submit-product','ProductController@create');
-Route::get('product/{id}','ProductController@getDetails');
-
-Route::post('update-product','ProductController@update');
-Route::get('delete-product/{id}','ProductController@delete');
-
-
-
-Route::post('uploader','CategoryController@uploader');

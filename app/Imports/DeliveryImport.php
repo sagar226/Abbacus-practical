@@ -72,7 +72,9 @@ class DeliveryImport implements ToCollection
 
             $this->createInvoice($delivery,$deliveryData);
             $count++;
+            
            }catch(Exception $e){
+            dd($e);
             FileLog::create([
 
                 'uuid'=>$this->uuid,

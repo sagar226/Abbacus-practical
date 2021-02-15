@@ -7,6 +7,7 @@
         <h1 style="text-align: center;">CSV Uploader</h1>
        
         <p> </p><p> </p>
+       
   <form action="uploader" enctype="multipart/form-data" method="POST">
 
     <div class="col-md-10 col-md-offset-1">
@@ -23,6 +24,9 @@
           </div>
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
+        <div class="col col-xs-6 text-right">
+          <button type="button" onclick="location.href='/'" class="btn btn-sm btn-primary btn-create">BACK</button>
+        </div>
         {{-- @if(isset($url) && !empty($url))
         <a href={{$url}} class='btn btn-danger btn-margin' download>Fail to imported Data </a>
         @endif --}}

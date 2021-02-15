@@ -4,7 +4,7 @@
     <div class="row">
     
         <p></p>
-        <h1 style="text-align: center;  ">product Tables</h1>
+        <h1 style="text-align: center;  ">Delivery Data</h1>
        
         <p> </p><p> </p>
     
@@ -17,7 +17,7 @@
                     <h3 class="panel-title">Panel Heading</h3>
                   </div>
                   <div class="col col-xs-6 text-right">
-                    <button type="button" onclick="location.href='/create-products'" class="btn btn-sm btn-primary btn-create">Create New</button>
+                    <button type="button" onclick="location.href='/upload'" class="btn btn-sm btn-primary btn-create">Upload File</button>
                   </div>
                 </div>
               </div>
@@ -62,7 +62,7 @@
     });
     function getproducts(page){
       $.ajax({
-            url: 'getproducts/?page='+page,
+            url: 'deliveries/?page='+page,
             type: 'get',
             dataType: 'json',
             success:function(response){
@@ -76,7 +76,7 @@
 
                 if(products.length){
                     for(ii=0;ii < products.length;ii++){
-                        data+="<tr> <td align='center'><a href='"+location.origin+'/storage/'+products[ii]['invoice']+"' class='btn btn-default'><em class='fa fa-pencil'></em></a><a href='"+location.origin+'/storage/'+products[ii]['invoice']+"' class='btn btn-danger btn-margin' download><em class='fa fa-trash'></em></button>"+
+                        data+="<tr> <td align='center'><a href='"+location.origin+'/storage/'+products[ii]['invoice']+"' class='btn btn-default'><em class='fa fa-eye'></em></a><a href='"+location.origin+'/storage/'+products[ii]['invoice']+"' class='btn btn-danger btn-margin' download><em class='fa fa-download'></em></button>"+
                         "<td class='hidden-xs'>"+ products[ii]['id']  +"</td><td>"+ products[ii]['shop_name']+"</td><td>"+ products[ii]['uid']+"</td><td>"+ products[ii]['delivery_note_number']+"</td><td>"+ products[ii]['beat_name']+"</td></tr>";    
                     }
                     pageNextUrl='';
