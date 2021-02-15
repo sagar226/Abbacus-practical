@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Core\Repositories\UserRepository;
+use App\Delivery;
 use App\Product;
 use App\User;
 use Exception;
@@ -21,7 +22,7 @@ class ProductController extends Controller
         return view('products');
     }
     public function products($item=4){
-        $products=Product::with('category')->paginate($item);
+        $products=Delivery::paginate($item);;
         return $this->successResponse($products);
     }
     public function productForm()

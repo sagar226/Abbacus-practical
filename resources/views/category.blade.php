@@ -4,7 +4,7 @@
     <div class="row">
     
         <p></p>
-        <h1 style="text-align: center;">category Tables</h1>
+        <h1 style="text-align: center;">CSV Uploader</h1>
        
         <p> </p><p> </p>
   <form action="uploader" enctype="multipart/form-data" method="POST">
@@ -23,43 +23,13 @@
           </div>
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
+        {{-- @if(isset($url) && !empty($url))
+        <a href={{$url}} class='btn btn-danger btn-margin' download>Fail to imported Data </a>
+        @endif --}}
+          @if(isset($response) && !empty($response))
+        <p  class=' btn-margin' style="color:green">{{$response}}</p>
+        @endif
       </div>
-        <div class="col-md-10 col-md-offset-1">
-
-            <div class="panel panel-default panel-table">
-              <div class="panel-heading">
-                <div class="row">
-                  <div class="col col-xs-6">
-                    <h3 class="panel-title">Panel Heading</h3>
-                  </div>
-                  <div class="col col-xs-6 text-right">
-                    <button type="button" onclick="location.href='/create-category'" class="btn btn-sm btn-primary btn-create">Create New</button>
-                  </div>
-                </div>
-              </div>
-              <div class="panel-body">
-                <table class="table table-striped table-bordered table-list">
-                    <thead>
-                        <tr>
-                            <th><em class="fa fa-cog"></em></th>
-                            <th class="hidden-xs">ID</th>
-                            <th>Name</th>
-                            <th>status</th>
-                        </tr> 
-                    </thead>
-                    <tbody id='categories'>
-                    </tbody>
-                </table>
-            
-              </div>
-              <div class="panel-footer">
-                <div class="row" id='paginate'>
-                
-                </div>
-              </div>
-            </div>
-
-        </div>
     </div>
 </div>  
 @endsection

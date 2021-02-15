@@ -27,11 +27,11 @@
                         <tr>
                             <th><em class="fa fa-cog"></em></th>
                             <th class="hidden-xs">ID</th>
-                            <th>Name</th>
-                            <th>SKU</th>
-                            <th>desc</th>
-                            <th>Quantity</th>
-                            <th>Category</th>
+                            <th>Shop Name</th>
+                            <th>UID</th>
+                            <th>Note Number</th>
+                            <th>Beat name</th>
+                      
                         </tr> 
                     </thead>
                     <tbody id='products'>
@@ -72,10 +72,12 @@
                 pagination=null;
                 $("#paginate").empty();
                 $("#products").empty();
+               
+
                 if(products.length){
                     for(ii=0;ii < products.length;ii++){
-                        data+="<tr> <td align='center'><a href='product/"+products[ii]['id']+"' class='btn btn-default'><em class='fa fa-pencil'></em></a><a href='delete-product/"+products[ii]['id']+"' class='btn btn-danger btn-margin' ><em class='fa fa-trash'></em></button>"+
-                        "<td class='hidden-xs'>"+ products[ii]['id']  +"</td><td>"+ products[ii]['name']+"</td><td>"+ products[ii]['sku']+"</td><td>"+ products[ii]['desc']+"</td><td>"+ products[ii]['quantity']+"</td><td>"+ products[ii]['category'].name+"</td></tr>";    
+                        data+="<tr> <td align='center'><a href='"+location.origin+'/storage/'+products[ii]['invoice']+"' class='btn btn-default'><em class='fa fa-pencil'></em></a><a href='"+location.origin+'/storage/'+products[ii]['invoice']+"' class='btn btn-danger btn-margin' download><em class='fa fa-trash'></em></button>"+
+                        "<td class='hidden-xs'>"+ products[ii]['id']  +"</td><td>"+ products[ii]['shop_name']+"</td><td>"+ products[ii]['uid']+"</td><td>"+ products[ii]['delivery_note_number']+"</td><td>"+ products[ii]['beat_name']+"</td></tr>";    
                     }
                     pageNextUrl='';
                     if(response.data.next_page_url!=null){

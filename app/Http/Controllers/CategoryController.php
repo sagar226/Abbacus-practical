@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\DeliveryData;
+use App\Exports\FileLogExport;
+use App\FileLog;
 use App\Imports\DeliveryImport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -19,11 +21,20 @@ class CategoryController extends Controller
     public function uploader(Request $request){
         
         $unique=$this->downloadFile($request->file);
-        $path=config('filesystems.disks.local.url');
+        $path=config('filesystems.disks.public.root');
+        $pathT=config('filesystems.disks.public.url');
         $url=$path.'/'.$unique;
+    
+        $uuid=time();
+        Excel::import(new DeliveryImport($uuid),$url);
         
-        Excel::import(new DeliveryImport,$url);
-     
+       $file=FileLog::where('uuid',$uuid)->count();
+    //    if($file > 0 ){ 
+    //        Excel::store(new FileLogExport($uuid), $uuid.'result.csv');
+    //        $resultUrl=$pathT.'/'.$uuid.'result.csv';
+    //        return view('category',['url' => $resultUrl,"response"=> "data imported succesfully"]);
+    //    }
+       return view('category',['url' => "","response"=> "all data imported succesfully"]);
     }
     public function categories($item=4){
         $category=Category::paginate($item);
